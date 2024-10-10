@@ -1,11 +1,16 @@
 namespace Coinflip {
     @EntryPoint()
-    operation Main() : Unit {
+    operation Main() : String {
+        mutable output = "";
+
         if (FlipCoin() == Zero) {
-            Message("Heads");
+            set output = "Heads";
         } else {
-            Message("Tails");
+            set output = "Tails";
         }
+
+        Message(output);
+        return output
     }
 
     operation FlipCoin() : Result {
